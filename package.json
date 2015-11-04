@@ -1,0 +1,22 @@
+{
+  "name": "surf",
+  "version": "0.0.1",
+  "description": "An app to Surf the net with!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arashcuzi/surf.git"
+  },
+  "author": "Shawn Petros",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arashcuzi/surf/issues"
+  },
+  "homepage": "https://github.com/arashcuzi/surf#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
