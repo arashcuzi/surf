@@ -1,6 +1,6 @@
-let express = require('express');
-let path = require('path');
-let app = express();
+var express = require('express');
+var path = require('path');
+var app = express();
 
 app.get('/', function (req, res) {
   res.status(200).send('Hello Surf!');
@@ -8,9 +8,9 @@ app.get('/', function (req, res) {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-let server = app.listen(3000, function () {
-    let host = server.address().address;
-    let port = server.address().port;
+var server = app.listen(3000, function () {
+    var host = server.address().address;
+    var port = server.address().port;
 
     console.log('Surf app listening at http://%s:%s', host, port);
 });
