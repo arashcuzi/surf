@@ -7,6 +7,24 @@ $(document).ready(function(){
         var clickedIndex = $(this).index();
         var translate = 0;
 
+        if ( clickedIndex === prevIndex ) {
+            $('.active').addClass('pressed');
+
+            setTimeout(function(){
+                $('.active').removeClass('pressed');
+            }, 100);
+
+            if ( this === $('#surf')[0] ) {
+                $('#loading').addClass('loading');
+                setTimeout(function(){
+                    $('#front-page').animate({ 'opacity': 0 }, initialization);
+                    $('#loading').removeClass('loading');
+                }, 6000);
+            }
+
+            return;
+        }
+
         if ( clickedIndex !== 1 && prevIndex > clickedIndex ) {
             translate = 150;
         } else if ( clickedIndex !== 1 && prevIndex < clickedIndex ) {
@@ -18,13 +36,13 @@ $(document).ready(function(){
         $(this).parent().css({ 'transform': 'translateX(' + translate + 'px)' });
     });
 
-    $('#surf').on('click', function(){
-        $('#loading').addClass('loading');
-        setTimeout(function(){
-            $('#front-page').animate({ 'opacity': 0 }, initialization);
-            $('#loading').removeClass('loading');
-        }, 6000);
-    });
+    // $('#surf').on('click', function(){
+    //     $('#loading').addClass('loading');
+    //     setTimeout(function(){
+    //         $('#front-page').animate({ 'opacity': 0 }, initialization);
+    //         $('#loading').removeClass('loading');
+    //     }, 6000);
+    // });
 
     $('.floating-btn').on('click', function(){
         videoPlaying = false;
