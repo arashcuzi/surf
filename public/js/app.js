@@ -1,28 +1,45 @@
 function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
 
 function getResult() {
-    // prep request
+    // populate categories
+    var categoryNames = [];
+
+    $.get('https://www.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=US&key=AIzaSyAOns8uchTUHEgg20F_pGhKQ4gL2_S3c6w', function(data){
+        console.dir(data);
+        $.each(data.items, function(index, item){
+            categoryNames.push(item.snippet.title);
+        });
+    });
+
     var req = gapi.client.youtube.search.list({
         part: 'snippet',
         type: 'video',
-        q: encodeURIComponent($('#word').text().replace(/%20/g, '+')),
-        maxResults: 1
+        chart: 'mostPopular',
+        order: 'viewCount',
+        contentRegion: 'US',
+        videoCategoryId: categoryNames[ Math.floor( Math.random() * categoryNames.length ) ],
+        videoDefinition: 'high',
+        maxResults: 50
     });
+
+    console.dir(req);
 
     // execute request
     req.execute(function(res) {
-        // console.log(res);
+        console.log(res);
 
         var results = res.result.items;
 
-        $.each(results, function(index, item){
-            // console.log(item);
+        var item = results[ Math.floor( Math.random() * results.length ) ];
+
+        // $.each(results, function(index, item){
+            console.log(item);
             // console.log(item.id.videoId);
             $.get('tpl/vid.html', function(data){
-                $('body').append(tplawesome(data, [{"videoid": item.id.videoId}]));
+                $('#video').html(tplawesome(data, [{"videoid": item.id.videoId}]));
             });
             // $('body').append(item.id.videoId + ' ' + item.snippet.title + '<br>');
-        });
+        // });
     });
 }
 

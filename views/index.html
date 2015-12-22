@@ -1,10 +1,26 @@
-<div class="jumbotron" style="display: none">
-    <div class="container">
-        <h1>Surf!</h1>
-        <p>You're currently watching based on: <span id="word">{{{word}}}</span></p>
-        <p>
-            <a class="btn btn-primary btn-lg">Learn more</a>
-        </p>
-        <p id="videos"></p>
+<div id="front-page">
+    <h1>SURF</h1>
+    <ul id="menu" class="nav nav-pills">
+        <li class="menu-item">
+            <div class="title">Watched</div>
+            <div class="btn glyphicon glyphicon-th-list"></div>
+        </li>
+        <li id="surf" class="menu-item active">
+            <div class="title">Surf</div>
+            <div class="btn glyphicon glyphicon-play"></div>
+        </li>
+        <li class="menu-item">
+            <div class="title">Favorites</div>
+            <div class="btn glyphicon glyphicon-star"></div>
+        </li>
+    </ul>
+    <div id="loading" class="no-show">
+        Preparing to surf...
     </div>
 </div>
+<span id="word" class="hidden">{{{word}}}</span>
+<div >
+<!-- <span>Stop</span> -->
+<div class="floating-btn btn glyphicon glyphicon-stop no-show"></div>
+</div>
+<div id="video"></div>
