@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/arashcuzi/surf#readme",
   "dependencies": {
+    "body-parser": "^1.14.2",
     "express": "^4.13.3",
     "express-handlebars": "^2.0.1",
+    "mongodb-uri": "^0.9.7",
+    "mongoose": "^4.3.4",
     "random-word": "^1.0.2"
   }
 }
