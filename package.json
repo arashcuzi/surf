@@ -1,28 +1,18 @@
 {
-  "name": "surf",
+  "name": "surf-react",
   "version": "0.0.1",
-  "description": "An app to Surf the net with!",
-  "main": "index.js",
-  "scripts": {
-    "start": "node app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "1.0.11"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arashcuzi/surf.git"
-  },
-  "author": "Shawn Petros",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/arashcuzi/surf/issues"
-  },
-  "homepage": "https://github.com/arashcuzi/surf#readme",
   "dependencies": {
-    "body-parser": "^1.14.2",
-    "express": "^4.13.3",
-    "express-handlebars": "^2.0.1",
-    "mongodb-uri": "^0.9.7",
-    "mongoose": "^4.3.4",
-    "random-word": "^1.0.2"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
